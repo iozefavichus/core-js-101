@@ -102,26 +102,26 @@ function getFastestPromise(array) {
  *    });
  *
  */
-function chainPromises(array, action) {
-  const pr = new Promise((resolve, reject) => {
-    let count = 0;
-    const results = [];
-    for (let i = 0; i < array.length; i += 1) {
-      Promise.resolve(array[i])
-      // eslint-disable-next-line no-loop-func
-        .then((value) => {
-          count += 1;
-          results[i] = value;
-          if (count === array.length) {
-            resolve(results);
-          }
-        })
-        .catch((err) => reject(err));
-    }
-  })
-    .then((res) => res.reduce(action))
-    .catch((err) => console.log(`${err}`));
-  return pr;
+function chainPromises(/* array, action */) {
+  throw new Error('Not implemented');
+  // const pr = new Promise((resolve, reject) => {
+  //   let count = 0;
+  //   const results = [];
+  //   for (let i = 0; i < array.length; i += 1) {
+  //     Promise.resolve(array[i])
+  //       .then((value) => {
+  //         count += 1;
+  //         results[i] = value;
+  //         if (count === array.length) {
+  //           resolve(results);
+  //         }
+  //       })
+  //       .catch((err) => reject(err));
+  //   }
+  // })
+  //   .then((res) => res.reduce(action))
+  //   .catch((err) => `${err}`);
+  // return pr;
 }
 
 module.exports = {
