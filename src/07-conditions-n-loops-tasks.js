@@ -233,8 +233,11 @@ function findFirstSingleChar(str) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  const open = isStartIncluded ? '[' : '(';
+  const close = isEndIncluded ? ']' : ')';
+  const result = a > b ? `${open}${b}, ${a}${close}` : `${open}${a}, ${b}${close}`;
+  return result;
 }
 
 
@@ -250,8 +253,8 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 
@@ -267,8 +270,8 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  return num.toString().split('').reverse().join('');
 }
 
 
@@ -292,8 +295,22 @@ function reverseInteger(/* num */) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/* ccn */) {
-  throw new Error('Not implemented');
+function isCreditCardNumber(ccn) {
+  const arr = ccn.toString()
+    .split('')
+    .reverse()
+    .map((x) => parseInt(x, 10));
+  const lastDigit = arr.splice(0, 1)[0];
+  let sum = arr.reduce((acc, val, i) => {
+    if (i % 2 !== 0) {
+      return acc + val;
+    } if (val * 2 > 9) {
+      return acc + val * 2 - 9;
+    }
+    return acc + val * 2;
+  }, 0);
+  sum += lastDigit;
+  return sum % 10 === 0;
 }
 
 /**
