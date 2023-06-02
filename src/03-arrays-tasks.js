@@ -547,8 +547,15 @@ function distinct(arr) {
  */
 function group(/* array, keySelector, valueSelector */) {
   throw new Error('Not implemented');
+  // return array.reduce((obj, item) => {
+  //   const key = keySelector(item);
+  //   if (!obj[key]) {
+  //     obj[key] = [];
+  //   }
+  //   obj[key].push(valueSelector(item));
+  //   return obj;
+  // }, {});
 }
-
 
 /**
  * Projects each element of the specified array to a sequence

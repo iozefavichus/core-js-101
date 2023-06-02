@@ -78,6 +78,21 @@ function isLeapYear(date) {
  */
 function timeSpanToString(/* startDate, endDate */) {
   throw new Error('Not implemented');
+//   const zero = '0';
+//   const hours = endDate.getHours() - startDate.getHours();
+//   const minutes = endDate.getMinutes() - startDate.getMinutes();
+//   const sec = endDate.getSeconds() - startDate.getSeconds();
+//  let ms = endDate.getMilliseconds() - startDate.getMilliseconds();
+//  hours = hours < 10 ? zero + hours : hours;
+//  minutes = minutes < 10 ? zero + minutes : minutes;
+//  sec = sec < 10 ? zero + sec : sec;
+//  if (ms < 10) {
+//   ms = zero + zero + ms;
+//  }
+//  if (ms >= 10 && ms < 100) {
+//   ms = zero + ms;
+//  }
+//  return `${hours}:${minutes}:${sec}.${ms}`;
 }
 
 
@@ -99,6 +114,13 @@ function timeSpanToString(/* startDate, endDate */) {
  */
 function angleBetweenClockHands(/* date */) {
   throw new Error('Not implemented');
+  // const newdate = new Date(date);
+  // const hours = newdate.getHours();
+  // const minutes = newdate.getMinutes();
+  // const nook1 = Math.abs((hours + minutes / 60) * 30 - (minutes * 6));
+  // const nook2 = Math.abs((minutes * 6) - (hours + minutes / 60) * 30);
+  // const output = (Math.min(360 - nook1, nook2) * Math.PI) / 180;
+  // return output;
 }
 
 
